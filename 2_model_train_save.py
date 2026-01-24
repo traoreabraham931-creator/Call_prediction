@@ -1,0 +1,66 @@
+import psycopg2
+
+import pandas as pd
+
+import numpy as np
+
+from library import AttentionLayer, Architecture
+
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Input
+from tensorflow.keras.models import Model
+
+tf.random.set_seed(1)
+tf.keras.utils.set_random_seed(1)   
+tf.config.experimental.enable_op_determinism()
+
+
+
+
+connexion =  psycopg2.connect(user="user", host="posgre_sql", password ="FelixRegina%1234", database="time_series", port = 5432)
+curr = connexion.cursor()
+curr.execute("SELECT * FROM {0}".format("call_data"))
+data = pd.DataFrame(curr.fetchall())
+
+col_names = []
+for elt in curr.description:
+    col_names.append(elt[0])
+
+data= data.rename(columns={i:col_names[i] for i in range(len(col_names))})
+
+print(data.head())
+
+#data = pd.read_csv("/app/call_usa_options.csv")
+
+train = data.iloc[:9000,:]
+x_train = train[[col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]].to_numpy()
+y_train = train[["strike"]].to_numpy()
+[nrows,ncols] = x_train.shape
+x_train = x_train.reshape(nrows, ncols, 1)
+x_train = x_train.astype(np.float32)
+y_train = y_train.astype(np.float32)
+print(x_train.shape)
+print(y_train.shape)
+
+
+shape = data.shape[1]
+architecture = Architecture(shape)
+architecture.model_recovery()
+architecture.ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
+## Définition du modèle
+#ncols = data.shape[1]
+#inputs = Input(shape=(ncols-4,1))
+## First - layer - LSTM
+#first_layer = LSTM(50, activation='relu', return_sequences=True)(inputs)
+## Second layer - Attention
+#attention_out, attention_weights = AttentionLayer()(first_layer)
+#outputs = Dense(1, activation='relu')(attention_out)
+#ml_model = Model(inputs, outputs)
+#ml_model.compile(optimizer='adam', loss='mean_squared_error')       
+#ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
+
+
+
+
+        
