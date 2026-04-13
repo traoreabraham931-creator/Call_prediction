@@ -1,0 +1,3 @@
+POSTGRES_USER=user
+POSTGRES_PASSWORD=FelixRegina%1234
+POSTGRES_DB=time_series

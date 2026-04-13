@@ -1,0 +1,15 @@
+mlflow
+tensorflow
+keras
+numpy
+pandas
+matplotlib
+scikit-learn
+jupyter
+jupyterlab
+scipy
+seaborn
+plotly
+#pymysql
+#cryptography
+psycopg2
