@@ -1,0 +1,35 @@
+#version: '3.8'
+
+services:
+  
+  python_app:
+    build:
+      dockerfile: Dockerfile_python
+    depends_on:
+      - db
+    ports:
+      - '8888:8888'
+  
+  db:
+    image: postgres:17 #15
+    container_name: posgre_sql    
+   # environment:
+      #- POSTGRES_USER=abraham #user
+      #- POSTGRES_PASSWORD=abraham #FelixRegina%1234
+      #- POSTGRES_DB=abraham_dev #time_series  
+    ports:
+      - '5432:5432'
+    env_file:
+      - ./env_db.dev
+  
+  #db: 
+  #  image: postgres:15
+  #  volumes:
+  #    - postgres_data:/var/lib/postgresql/data/
+  #  environment:
+  #    - POSTGRES_USER=hello_django
+  #    - POSTGRES_PASSWORD=hello_django
+  #    - POSTGRES_DB=hello_django_dev
+
+volumes:
+  postgres_data:
