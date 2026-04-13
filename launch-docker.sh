@@ -1,10 +1,12 @@
 #!/bin/bash
-
+# deletion of all of the existing containers
 docker rm -vf $(docker ps -aq)
+# deletion of all of the existing images
 docker rmi -f $(docker images -aq)
+# creation of the new docker containers
 docker-compose -f /Users/abrahamtraore/Desktop/Python_upskill/Options_strike_prediction/Programmes/docker-compose.yml up
-docker cp /Users/abrahamtraore/Desktop/Python_upskill/Options_strike_prediction/call_put_data/call_usa_options.csv posgre_sql://var/lib/postgresql/data/
-docker exec -it posgre_sql psql -U user -d time_series
+
+
 
 
 
