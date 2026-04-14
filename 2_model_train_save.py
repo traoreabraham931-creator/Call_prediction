@@ -1,5 +1,7 @@
 import psycopg2
 
+import joblib
+
 import pandas as pd
 
 import numpy as np
@@ -59,6 +61,10 @@ architecture.ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
 #ml_model = Model(inputs, outputs)
 #ml_model.compile(optimizer='adam', loss='mean_squared_error')       
 #ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
+joblib.dump(architecture.ml_model, 'model_for_inference_gcp.pkl')
+
+
+
 
 
 
