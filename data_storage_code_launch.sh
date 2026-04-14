@@ -2,6 +2,8 @@ docker cp /Users/abrahamtraore/Desktop/Python_upskill/Options_strike_prediction/
 # Opening of the database and creation of the table to store the dataset
 docker exec -i posgre_sql \
 psql -U user -d time_series < /Users/abrahamtraore/Desktop/Python_upskill/Options_strike_prediction/Programmes/query_file.sql
+docker exec -it programmes-python_app-1 python3 2_model_train_save.py
+
 
 
 
