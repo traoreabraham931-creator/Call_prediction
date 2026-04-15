@@ -50,18 +50,20 @@ shape = data.shape[1]
 architecture = Architecture(shape)
 architecture.model_recovery()
 architecture.ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
-## Définition du modèle
-#ncols = data.shape[1]
-#inputs = Input(shape=(ncols-4,1))
-## First - layer - LSTM
-#first_layer = LSTM(50, activation='relu', return_sequences=True)(inputs)
-## Second layer - Attention
-#attention_out, attention_weights = AttentionLayer()(first_layer)
-#outputs = Dense(1, activation='relu')(attention_out)
-#ml_model = Model(inputs, outputs)
-#ml_model.compile(optimizer='adam', loss='mean_squared_error')       
-#ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
 joblib.dump(architecture.ml_model, 'model_for_inference_gcp.pkl')
+
+# Test of the model
+test = data.iloc[9000:,:]
+x_test = test[[col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]].to_numpy()
+y_test = test[["strike"]].to_numpy()
+[nrows,ncols] = x_test.shape
+x_test = x_test.reshape(nrows, ncols, 1)
+x_test = x_test.astype(np.float32)
+y_test = y_test.astype(np.float32)
+prediction = architecture.ml_model.predict(x_test)
+print(prediction.shape)
+np.save('prediction_call_put.npy', prediction)
+np.save('test_data.npy', y_test)
 
 
 

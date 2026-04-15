@@ -103,44 +103,7 @@ class Call_Put_processing:
         all_data_numeric = all_data[[col for col in all_data.columns if all_data[col].dtypes == 'float64' or col in ["type", "expiration"]]]
         
         self.data = all_data_numeric
-            
-        # def format_columns(data):
-        #     colnames = data.columns
-        #     for col in colnames:
-        #         data[col] = data[col].apply(lambda x: x.replace(".","").replace(",","."))
-        #     # Specific cas of  volumes
-        #     data["Vol."] = data["Vol."].apply(lambda x: float(x.replace("M",""))*1000000)
-        #     data["Variation %"] = data["Variation %"].apply(lambda x: float(x.replace("%",""))/100)
-        
-        
-        
-        # all_names = os.listdir(address)
-        
-        # all_names = [name for name in all_names if name != '.DS_Store']
-        
-        # result = pd.read_csv(address+"/"+all_names[0])
-        
-        # format_columns(result)
-        
-        
-        # for i in range(1, len(all_names)):
-        #     temp = pd.read_csv(address+"/"+all_names[i])
-        #     format_columns(temp)            
-        #     result = pd.concat([result,temp])
-  
-        # self.data = result
-        # colnames = self.data.columns
-        # colnames_modified = [col.replace(" ","").replace("%","").replace(".","").strip() for col in colnames ]
-        # #print(colnames_modified)
-        # #Remove all spaces in the column names
-        # self.data.rename(columns={colnames[i]:colnames_modified[i] for i in range(len(colnames))}, inplace=True)
-        # print(self.data.columns)
-        
-        
-        
-        
-        
-        
+         
         
         
     def save(self, address, file_name):
