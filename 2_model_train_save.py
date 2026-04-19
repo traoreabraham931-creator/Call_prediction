@@ -37,6 +37,7 @@ print(data.head())
 
 train = data.iloc[:9000,:]
 x_train = train[[col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]].to_numpy()
+print("The columns for training are {0}".format([col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]))
 y_train = train[["strike"]].to_numpy()
 [nrows,ncols] = x_train.shape
 x_train = x_train.reshape(nrows, ncols, 1)
