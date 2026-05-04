@@ -10,7 +10,7 @@ It is worth mentioning that this Machine Learning project focuses on building an
 
 This project deals with a * regression problem * via a simple neural network architecture with LSTM (Long Short Term Memory) with LSTM layers as well as an attention layer. The prokect could be split into four main phases: data cleaning, dockerization of the code, model training and performance evaluation.
 
-> 💡 ultimate objective: predict the price of a call option as precisely as possible. 
+> 💡 Ultimate objective: predict the price of a call option as precisely as possible. 
 
 ---
 
