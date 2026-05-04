@@ -1,6 +1,6 @@
 
-# 🧠 Call price prediction
-The purpose of this project is to illustrate how predict the price of a call option via a LSTM model with attention layers.
+# 🧠 Strike prediction for call options
+The purpose of this project is to illustrate how predict the strike of a call option via a LSTM model with attention layers.
 
 It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
 
@@ -45,12 +45,21 @@ For the data cleaning, we proceed as follows:
 
 ## 📊 Dataset
 
-Brief description of the dataset:
+* Source: https://optiondata.org/#fieldId
+* Features
+  - expiration
+  - strike
+  - bid
+  - bid_size
+  - ask
+  - ask_size
+  - delta
+  - gamma
+  - theta
+  - vega
+  - implied_volatility
 
-* Source: [Add source here]
-* Samples: XXXX
-* Features: XXXX
-* Target: Binary / Multi-class classification
+* Target: prediction of the 'right value for the strike' / Regression problem (prediction of real numbers)
 
 ---
 
@@ -59,27 +68,20 @@ Brief description of the dataset:
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 ```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
 ---
 
 ## ▶️ Usage
 
-Train the model:
+Launch a .sh file to build the containers (python and sql)
 
 ```bash
 python src/train.py
 ```
 
-Evaluate performance:
+Generate the call dataset from the raw data, store the data in a mysql database, train the model, make the prediction, and export some archives
+from the docker containers.
 
 ```bash
 python src/evaluate.py
