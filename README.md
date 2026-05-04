@@ -46,7 +46,20 @@ For the data cleaning, we proceed as follows:
 ## 📊 Dataset
 
 * Source: https://optiondata.org/#fieldId
-* Target: call price / Regression problem (prediction of real numbers)
+* Features
+  - expiration
+  - strike
+  - bid
+  - bid_size
+  - ask
+  - ask_size
+  - delta
+  - gamma
+  - theta
+  - vega
+  - implied_volatility
+
+* Target: prediction of the 'right value for the strike' / Regression problem (prediction of real numbers)
 
 ---
 
