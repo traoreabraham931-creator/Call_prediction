@@ -1,7 +1,6 @@
 import os 
 from library import Call_Put_processing
 
-# Abraham
 address= "./call_put_data/"
 if os.path.exists(address+"call_usa_options.csv"):
   os.remove(address+"call_usa_options.csv")
