@@ -46,7 +46,6 @@ y_train = y_train.astype(np.float32)
 print(x_train.shape)
 print(y_train.shape)
 
-
 shape = data.shape[1]
 architecture = Architecture(shape)
 architecture.model_recovery()
