@@ -19,7 +19,7 @@ For the data cleaning, we proceed as follows:
 
     * Removal of all of the data values that are not numeric ;
     
-    * The missing ovservations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
+    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
 
 ---
 
