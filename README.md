@@ -8,10 +8,9 @@ It is worth mentioning that this Machine Learning project focuses on building an
 
 ## 🚀 Overview
 
-This project tackles a **classification problem** using modern machine learning techniques.
-It includes data cleaning, feature engineering, model training, and performance evaluation.
+This project deals with a * regression problem * via a simple neural network architecture with LSTM (Long Short Term Memory) with LSTM layers as well as an attention layer. The prokect could be split into four main phases: data cleaning, dockerization of the code, model training and performance evaluation.
 
-> 💡 Goal: Accurately predict target classes from structured data.
+> 💡 ultimate objective: predict the price of a call option as precisely as possible. 
 
 ---
 
