@@ -29,19 +29,16 @@ For the data cleaning, we proceed as follows:
 ├── output/               # Archives containing the model as well as the predictions
 ├── call_put_data/        # Raw and processed datasets
 ├── Call_prediction/      # Source code with the python codes, dockerfiles and the requirement files
-│   ├── 1_dataformatting.py         # Data preprocessing
-│   ├── 2_model_train_save.py       # Training and save of the model
-│   ├── Dockerfile_python           # Dockerfile for the Python application
+    ├── 1_dataformatting.py         # Data preprocessing
+    ├── 2_model_train_save.py       # Training and save of the model
+    ├── Dockerfile_python           # Dockerfile for the Python application
     ├── data_storage_code_launch.sh # Bash file to pre-process the data, store the data in a relational data base, train the model, and save            the outputs.
     ├── docker-compose.yml          # Dockerfile allowing to build the Python app
     ├── env_db.env                  # File containing the user name for the mysql database
     ├── launch-docker.sh            # File to launch in order to build the docker containers for the python app as well as the mysql database
-│   ├── library.py                  # Library containing various classes and methods
-    ├── query_file.sql              
-├── models/             # Saved models
-├── outputs/            # Results, plots, metrics
-├── requirements.txt
-└── README.md
+    ├── library.py                  # Library containing various classes and methods
+    ├── query_file.sql
+    ├── requirements_python.txt     # Text file containing the libraries that have to be installed            
 ```
 
 ---
