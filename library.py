@@ -1,15 +1,15 @@
-import psycopg2
+#import psycopg2
 
 import pandas as pd
 
 import os
 
-import numpy as np
+#import numpy as np
 
-import json
+#import json
 
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
+#from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Input
 from tensorflow.keras.models import Model
 
