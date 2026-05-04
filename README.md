@@ -34,7 +34,10 @@ For the data cleaning, we proceed as follows:
 │   ├── Dockerfile_python           # Dockerfile for the Python application
     ├── data_storage_code_launch.sh # Bash file to pre-process the data, store the data in a relational data base, train the model, and save            the outputs.
     ├── docker-compose.yml          # Dockerfile allowing to build the Python app
-│   ├── library.py            # Library containing various classes and methods
+    ├── env_db.env                  # File containing the user name for the mysql database
+    ├── launch-docker.sh            # File to launch in order to build the docker containers for the python app as well as the mysql database
+│   ├── library.py                  # Library containing various classes and methods
+    ├── query_file.sql              
 ├── models/             # Saved models
 ├── outputs/            # Results, plots, metrics
 ├── requirements.txt
