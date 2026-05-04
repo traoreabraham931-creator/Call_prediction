@@ -1,5 +1,5 @@
 
-# 🧠 Call price prediction
+# 🧠 Strike prediction for a call
 The purpose of this project is to illustrate how predict the strike of a call option via a LSTM model with attention layers.
 
 It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
