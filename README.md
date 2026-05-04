@@ -1,8 +1,8 @@
-The purpose of this project is to illustrate ...
-# 🧠 Classification Project — Predictive Modeling Made Simple
 
-A machine learning project focused on building, evaluating, and deploying a robust classification model.
-This repository demonstrates the full pipeline from data preprocessing to model evaluation.
+# 🧠 Call price prediction
+The purpose of this project is to illustrate how predict the price of a call option via a LSTM model with attention layers.
+
+It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
 
 ---
 
