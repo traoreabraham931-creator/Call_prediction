@@ -1,7 +1,0 @@
-pandas == 2.3.3
-flask >= 2.2.2, <2.3.0
-tensorflow == 2.21.0
-keras == 3.14.0
-numpy == 2.4.4
-
-
