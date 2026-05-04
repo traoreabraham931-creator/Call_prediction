@@ -1,18 +1,12 @@
 import psycopg2
-
 import joblib
-
 import pandas as pd
-
 import numpy as np
-
 from library import Architecture
-
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Input
 from tensorflow.keras.models import Model
-
 tf.random.set_seed(1)
 tf.keras.utils.set_random_seed(1)   
 tf.config.experimental.enable_op_determinism()
@@ -21,11 +15,9 @@ connexion =  psycopg2.connect(user="user", host="posgre_sql", password ="FelixRe
 curr = connexion.cursor()
 curr.execute("SELECT * FROM {0}".format("call_data"))
 data = pd.DataFrame(curr.fetchall())
-
 col_names = []
 for elt in curr.description:
     col_names.append(elt[0])
-
 data= data.rename(columns={i:col_names[i] for i in range(len(col_names))})
 print(data.head())
 train = data.iloc[:9000,:]
