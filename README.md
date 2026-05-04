@@ -29,9 +29,12 @@ For the data cleaning, we proceed as follows:
 ├── output/               # Archives containing the model as well as the predictions
 ├── call_put_data/        # Raw and processed datasets
 ├── Call_prediction/      # Source code with the python codes, dockerfiles and the requirement files
-│   ├── preprocessing.py
-│   ├── train.py
-│   ├── evaluate.py
+│   ├── 1_dataformatting.py         # Data preprocessing
+│   ├── 2_model_train_save.py       # Training and save of the model
+│   ├── Dockerfile_python           # Dockerfile for the Python application
+    ├── data_storage_code_launch.sh # Bash file to pre-process the data, store the data in a relational data base, train the model, and save            the outputs.
+    ├── docker-compose.yml          # Dockerfile allowing to build the Python app
+│   ├── library.py            # Library containing various classes and methods
 ├── models/             # Saved models
 ├── outputs/            # Results, plots, metrics
 ├── requirements.txt
