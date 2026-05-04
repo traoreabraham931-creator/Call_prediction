@@ -14,14 +14,10 @@ This project deals with a * regression problem * via a simple neural network arc
 
 ---
 
-## ✨ Features
-
-* 📊 Data preprocessing & cleaning pipeline
-* 🔍 Exploratory Data Analysis (EDA)
-* 🤖 Multiple classification models (Logistic Regression, Random Forest, etc.)
-* ⚖️ Model comparison & evaluation
-* 📈 Performance metrics (Accuracy, Precision, Recall, F1-score)
-* 💾 Model saving & loading
+## ✨ Data cleaning
+For the data cleaning, we proceed as follows:
+    * Removal of all of the data values that are not numeric;
+    * The missing ovservations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
 
 ---
 
