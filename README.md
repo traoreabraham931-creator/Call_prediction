@@ -70,13 +70,6 @@ Clone the repository:
 ```bash
 git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 ```
-
-Install dependencies:
-
-```bash
-   pip install -r requirements.txt
-```
-
 ---
 
 ## ▶️ Usage
