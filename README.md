@@ -26,9 +26,9 @@ For the data cleaning, we proceed as follows:
 ## 🏗️ Project Structure
 
 ```
-├── data/               # Raw and processed datasets
-├── notebooks/          # Jupyter notebooks for exploration
-├── src/                # Source code
+├── output/               # Archives containing the model as well as the predictions
+├── call_put_data/        # Raw and processed datasets
+├── Call_prediction/      # Source code with the python codes, dockerfiles and the requirement files
 │   ├── preprocessing.py
 │   ├── train.py
 │   ├── evaluate.py
