@@ -89,7 +89,12 @@ class Call_Put_processing:
         Returns:
             None
         """
-        
+    
+    def replace_missing(self):
+        columns = [col for col in self.data.columns if self.data[col].dtypes == 'float64']
+        for col in colums:
+            self.data[col] = self.data[col].fillna(self.data[col].mean())
+
     def load_and_format(self):
         all_files = [name for name in os.listdir(self.address) if "options" in name]
         print(all_files)
