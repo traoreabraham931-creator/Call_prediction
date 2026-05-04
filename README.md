@@ -16,7 +16,9 @@ This project deals with a * regression problem * via a simple neural network arc
 
 ## ✨ Data cleaning
 For the data cleaning, we proceed as follows:
-    * Removal of all of the data values that are not numeric;
+
+    * Removal of all of the data values that are not numeric ;
+    
     * The missing ovservations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
 
 ---
