@@ -46,8 +46,6 @@ For the data cleaning, we proceed as follows:
 ## 📊 Dataset
 
 * Source: https://optiondata.org/#fieldId
-* Samples: XXXX
-* Features: XXXX
 * Target: call price / Regression problem (prediction of real numbers)
 
 ---
