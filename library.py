@@ -92,7 +92,7 @@ class Call_Put_processing:
     
     def replace_missing(self):
         columns = [col for col in self.data.columns if self.data[col].dtypes == 'float64']
-        for col in colums:
+        for col in columns:
             self.data[col] = self.data[col].fillna(self.data[col].mean())
 
     def load_and_format(self):
