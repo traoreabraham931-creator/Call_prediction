@@ -49,7 +49,7 @@ print(y_train.shape)
 shape = data.shape[1]
 architecture = Architecture(shape)
 architecture.model_recovery()
-architecture.ml_model.fit(x_train, y_train, epochs=5, shuffle=False)
+architecture.ml_model.fit(x_train, y_train, epochs=100, shuffle=False)
 joblib.dump(architecture.ml_model, 'model_for_inference_gcp.pkl')
 
 # Test of the model
