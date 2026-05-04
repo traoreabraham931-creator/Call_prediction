@@ -68,14 +68,13 @@ For the data cleaning, we proceed as follows:
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 ```
 
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+   pip install -r requirements.txt
 ```
 
 ---
