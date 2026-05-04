@@ -45,12 +45,10 @@ For the data cleaning, we proceed as follows:
 
 ## 📊 Dataset
 
-Brief description of the dataset:
-
-* Source: [Add source here]
+* Source: https://optiondata.org/#fieldId
 * Samples: XXXX
 * Features: XXXX
-* Target: Binary / Multi-class classification
+* Target: call price / Regression problem (prediction of real numbers)
 
 ---
 
