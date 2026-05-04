@@ -6,7 +6,7 @@ import pandas as pd
 
 import numpy as np
 
-from library import AttentionLayer, Architecture
+from library import Architecture
 
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -16,9 +16,6 @@ from tensorflow.keras.models import Model
 tf.random.set_seed(1)
 tf.keras.utils.set_random_seed(1)   
 tf.config.experimental.enable_op_determinism()
-
-
-
 
 connexion =  psycopg2.connect(user="user", host="posgre_sql", password ="FelixRegina%1234", database="time_series", port = 5432)
 curr = connexion.cursor()
