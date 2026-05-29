@@ -34,15 +34,6 @@ This project deals with a * regression problem * via a simple neural network arc
 
 ---
 
-## Data cleaning
-For the data cleaning, we proceed as follows:
-
-    * Removal of all of the data values that are not numeric ;
-    
-    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the             observed values.
-
----
-
 ## Dataset
 
 * Source: https://optiondata.org/#fieldId
@@ -60,6 +51,15 @@ For the data cleaning, we proceed as follows:
   - implied_volatility
 
 * Target: prediction of the 'right value for the strike' / Regression problem (prediction of real numbers)
+
+---
+
+## Data cleaning
+For the data cleaning, we proceed as follows:
+
+    * Removal of all of the data values that are not numeric ;
+    
+    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the             observed values.
 
 ---
 
