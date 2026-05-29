@@ -103,7 +103,8 @@ The model used is a LSTM-based architecture with some attention layers. Delving 
  -----------------------------
 | Metrics           | Score   |
 | ----------------- | ------- |
-| MSE - test        |  18.968 |
+| MSE - test        |  19.010 |
  ----------------------------
 Roughly speaking, the test error amounts to 19.
+
 
