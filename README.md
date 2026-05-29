@@ -4,6 +4,8 @@ The purpose of this project is to illustrate how predict the strike of a call op
 
 It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
 
+The objective of this project is not to achieve state-of-the-art results on stock price prediction, but to showcase the author ability to present a structured approach to deal with a prediction task through Machine/Deep Learning techniques.
+
 ---
 
 ## Overview
