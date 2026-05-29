@@ -1,12 +1,12 @@
 
-# 🧠 Strike prediction for call options
+#  Strike prediction for call options
 The purpose of this project is to illustrate how predict the strike of a call option via a LSTM model with attention layers.
 
 It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
 
 ---
 
-## 🚀 Overview
+## Overview
 
 This project deals with a * regression problem * via a simple neural network architecture with LSTM (Long Short Term Memory) with LSTM layers as well as an attention layer. The prokect could be split into four main phases: data cleaning, dockerization of the code, model training and performance evaluation.
 
@@ -14,16 +14,7 @@ This project deals with a * regression problem * via a simple neural network arc
 
 ---
 
-## ✨ Data cleaning
-For the data cleaning, we proceed as follows:
-
-    * Removal of all of the data values that are not numeric ;
-    
-    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
-
----
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```                  
 ├── Call_prediction/                # Source code with the python codes, dockerfiles and the requirement files
@@ -43,7 +34,16 @@ For the data cleaning, we proceed as follows:
 
 ---
 
-## 📊 Dataset
+## Data cleaning
+For the data cleaning, we proceed as follows:
+
+    * Removal of all of the data values that are not numeric ;
+    
+    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the             observed values.
+
+---
+
+## Dataset
 
 * Source: https://optiondata.org/#fieldId
 * Features
