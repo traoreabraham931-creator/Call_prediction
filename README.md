@@ -84,7 +84,7 @@ Generate the call dataset from the raw data, store the data in a mysql database,
 from the docker containers.
 
 ```bash
-python src/evaluate.py
+./data_storage_code_launch.sh
 ```
 
 ---
