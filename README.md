@@ -91,21 +91,19 @@ from the docker containers.
 
 ## 🧪 Models Used
 
-The model used is a LSTM-based architecture with some attention layers.
+The model used is a LSTM-based architecture with some attention layers. Delving into the specifics, the layers are defined as follows:
 
 ---
 
 
 ## 📈 Results
-
-| Metric    | Score |
+--------------------
+| Metrics   | Score |
 | --------- | ----- |
-| Accuracy  | XX%   |
-| Precision | XX%   |
-| Recall    | XX%   |
-| F1-score  | XX%   |
+| MSE       |       |
+| RMSE      |       |
+ -------------------
 
-> 📌 Replace with your actual results.
 
 ---
 
