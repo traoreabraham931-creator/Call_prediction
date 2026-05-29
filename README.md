@@ -97,77 +97,10 @@ The model used is a LSTM-based architecture with some attention layers. Delving 
 
 
 ## 📈 Results
---------------------
-| Metrics   | Score |
-| --------- | ----- |
-| MSE       |       |
-| RMSE      |       |
- -------------------
+ -----------------------------
+| Metrics           | Score   |
+| ----------------- | ------- |
+| MSE - test        |  18.968 |
+ ----------------------------
+The test error in terms of mean square error amounts to 19.
 
-
----
-
-## 📸 Visualizations
-
-Add plots such as:
-
-* Confusion matrix
-* ROC curve
-* Feature importance
-
-Example:
-
-```md
-![Confusion Matrix](outputs/confusion_matrix.png)
-```
-
----
-
-## 🔍 Evaluation Metrics
-
-This project uses:
-
-* Accuracy
-* Precision
-* Recall
-* F1-score
-* ROC-AUC
-
----
-
-## 🧠 Key Learnings
-
-* Importance of feature engineering
-* Handling class imbalance
-* Model selection & tuning
-* Interpreting evaluation metrics
-
----
-
-## 🗺️ Roadmap
-
-* [ ] Hyperparameter tuning
-* [ ] Model deployment (API)
-* [ ] Add more datasets
-* [ ] Improve feature engineering
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-Feel free to open issues or submit pull requests.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving it a star ⭐
-
----
