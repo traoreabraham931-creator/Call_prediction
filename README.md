@@ -77,7 +77,7 @@ git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 Launch a .sh file to build the containers (python and sql)
 
 ```bash
-python src/train.py
+./launch-docker.sh 
 ```
 
 Generate the call dataset from the raw data, store the data in a mysql database, train the model, make the prediction, and export some archives
