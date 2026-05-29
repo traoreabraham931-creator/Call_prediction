@@ -89,10 +89,11 @@ from the docker containers.
 
 ---
 
-## Models Used
+## Attention-based architecture
 
 The model used is a LSTM-based architecture with some attention layers. Delving into the specifics, the layers are defined as follows:
      - A LSTM-cell with 50 units;
+     - A dropout layer ;
      - An attention layer;
      - An output layer with a single unit (prediction of a single value)
 
