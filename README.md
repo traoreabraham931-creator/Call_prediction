@@ -63,7 +63,7 @@ For the data cleaning, we proceed as follows:
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 Clone the repository:
 
@@ -72,7 +72,7 @@ git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 ```
 ---
 
-## ▶️ Usage
+## Usage
 
 Launch a .sh file to build the containers (python and sql)
 
@@ -89,9 +89,12 @@ from the docker containers.
 
 ---
 
-## 🧪 Models Used
+## Models Used
 
 The model used is a LSTM-based architecture with some attention layers. Delving into the specifics, the layers are defined as follows:
+     - A LSTM-cell with 50 units;
+     - An attention layer;
+     - An output layer with a single unit (prediction of a single value)
 
 ---
 
