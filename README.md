@@ -105,5 +105,5 @@ The model used is a LSTM-based architecture with some attention layers. Delving 
 | ----------------- | ------- |
 | MSE - test        |  18.968 |
  ----------------------------
-The test error in terms of mean square error amounts to 19.
+Roughly speaking, the test error amounts to 19.
 
