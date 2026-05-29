@@ -89,6 +89,13 @@ from the docker containers.
 
 ---
 
+## 🧪 Models Used
+
+The model used is a LSTM-based architecture with some attention layers.
+
+---
+
+
 ## 📈 Results
 
 | Metric    | Score |
@@ -115,15 +122,6 @@ Example:
 ```md
 ![Confusion Matrix](outputs/confusion_matrix.png)
 ```
-
----
-
-## 🧪 Models Used
-
-* Logistic Regression
-* Decision Tree
-* Random Forest
-* (Optional) XGBoost / Neural Networks
 
 ---
 
