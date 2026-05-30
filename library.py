@@ -10,7 +10,7 @@ import os
 
 import tensorflow as tf
 #from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Input, Dropout
+from tensorflow.keras.layers import LSTM, Dense, Input, Dropout, Attention
 from tensorflow.keras.models import Model
 
 
@@ -66,8 +66,11 @@ class Architecture:
         # Second layer
         second_layer  = Dropout(0.2)(first_layer)
         # Third layer - Attention
-        attention_out, attention_weights = AttentionLayer()(second_layer)
-        outputs = Dense(1, activation='relu')(attention_out)
+        #attention_out, attention_weights = AttentionLayer()(second_layer)
+        #outputs = Dense(1, activation='relu')(attention_out)
+        attention_out = Attention()([second_layer, second_layer])
+        pooled = tf.keras.layers.GlobalAveragePooling1D()(attention_out)
+        outputs = Dense(1, activation='relu')(pooled)
         self.ml_model = Model(inputs, outputs)
         self.ml_model.compile(optimizer='adam', loss='mean_squared_error')       
         
