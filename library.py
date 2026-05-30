@@ -4,12 +4,7 @@ import pandas as pd
 
 import os
 
-#import numpy as np
-
-#import json
-
 import tensorflow as tf
-#from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Input, Dropout, Attention
 from tensorflow.keras.models import Model
 
@@ -17,38 +12,6 @@ from tensorflow.keras.models import Model
 tf.random.set_seed(1)
 tf.keras.utils.set_random_seed(1)   
 tf.config.experimental.enable_op_determinism()
-
-
-class AttentionLayer(tf.keras.layers.Layer):
-    #https://www.geeksforgeeks.org/nlp/adding-attention-layer-to-a-bi-lstm/
-    def __init__(self, **kwargs):
-        super(AttentionLayer, self).__init__(**kwargs)
-
-    def build(self, input_shape):
-        # Trainable weights for attention mechanism
-        init=tf.keras.initializers.GlorotUniform(seed=0)(shape=(input_shape[-1], input_shape[-1]))
-
-        self.W = self.add_weight(name="att_weight", shape=(input_shape[-1], input_shape[-1]),
-                                 initializer=init, trainable=True)
-        self.b = self.add_weight(name="att_bias", shape=(input_shape[-1],),
-                                 initializer="zeros", trainable=True)
-        
-        init=tf.keras.initializers.GlorotUniform(seed=0)(shape=(input_shape[-1],))
-        
-        self.u = self.add_weight(name="att_u", shape=(input_shape[-1],),
-                                 initializer=init, trainable=True)
-
-        super(AttentionLayer, self).build(input_shape)
-
-    def call(self, inputs):
-        # Score computation
-        v = tf.tanh(tf.tensordot(inputs, self.W, axes=1) + self.b)
-        vu = tf.tensordot(v, self.u, axes=1)
-        alphas = tf.nn.softmax(vu)
-
-        # Weighted sum of input
-        output = tf.reduce_sum(inputs * tf.expand_dims(alphas, -1), axis=1)
-        return output, alphas
 
 
 class Architecture:
@@ -66,10 +29,9 @@ class Architecture:
         # Second layer
         second_layer  = Dropout(0.2)(first_layer)
         # Third layer - Attention
-        #attention_out, attention_weights = AttentionLayer()(second_layer)
-        #outputs = Dense(1, activation='relu')(attention_out)
         attention_out = Attention()([second_layer, second_layer])
         pooled = tf.keras.layers.GlobalAveragePooling1D()(attention_out)
+        # Fourth layer - output layer
         outputs = Dense(1, activation='relu')(pooled)
         self.ml_model = Model(inputs, outputs)
         self.ml_model.compile(optimizer='adam', loss='mean_squared_error')       
