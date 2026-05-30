@@ -11,6 +11,7 @@ tf.random.set_seed(1)
 tf.keras.utils.set_random_seed(1)   
 tf.config.experimental.enable_op_determinism()
 
+
 connexion =  psycopg2.connect(user="user", host="posgre_sql", password ="FelixRegina%1234", database="time_series", port = 5432)
 curr = connexion.cursor()
 curr.execute("SELECT * FROM {0}".format("call_data"))
@@ -20,7 +21,7 @@ for elt in curr.description:
     col_names.append(elt[0])
 data= data.rename(columns={i:col_names[i] for i in range(len(col_names))})
 print(data.head())
-train = data.iloc[:9000,:]
+train = data.iloc[:9900,:]
 x_train = train[[col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]].to_numpy()
 print("The columns for training are {0}".format([col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]))
 y_train = train[["strike"]].to_numpy()
@@ -33,10 +34,10 @@ print(y_train.shape)
 shape = data.shape[1]
 architecture = Architecture(shape)
 architecture.model_recovery()
-architecture.ml_model.fit(x_train, y_train, epochs=100, shuffle=False)
+architecture.ml_model.fit(x_train, y_train, epochs=50, shuffle=False)
 joblib.dump(architecture.ml_model, 'model_for_inference_gcp.pkl')
 # Test of the model
-test = data.iloc[9000:,:]
+test = data.iloc[9900:,:]
 x_test = test[[col for col in data.columns if col not in ["expiration","strike", "bid_size","ask_size"]]].to_numpy()
 y_test = test[["strike"]].to_numpy()
 [nrows,ncols] = x_test.shape
@@ -47,6 +48,22 @@ prediction = architecture.ml_model.predict(x_test)
 print(prediction.shape)
 np.save('prediction_call_put.npy', prediction)
 np.save('test_data.npy', y_test)
+mse_test = np.mean(abs(y_test-prediction))
+rmse_test =  np.mean((y_test-prediction)**2)
+print("The RMSE - test is {0}".format(rmse_test))
+print("The MSE - test is {0}".format(mse_test))
+
+prediction_train = architecture.ml_model.predict(x_train)
+mse_train = np.mean(abs(y_train-prediction_train))
+rmse_train =  np.mean((y_train-prediction_train)**2)
+print("The RMSE - train is {0}".format(rmse_train))
+print("The MSE - train is {0}".format(mse_train))
+
+
+
+
+
+
 
 
 

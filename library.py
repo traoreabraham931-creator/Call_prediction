@@ -10,7 +10,7 @@ import os
 
 import tensorflow as tf
 #from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import LSTM, Dense, Input
+from tensorflow.keras.layers import LSTM, Dense, Input, Dropout
 from tensorflow.keras.models import Model
 
 
@@ -63,8 +63,10 @@ class Architecture:
         inputs = Input(shape=(ncols-4,1))
         # First - layer - LSTM
         first_layer = LSTM(50, activation='relu', return_sequences=True)(inputs)
-        # Second layer - Attention
-        attention_out, attention_weights = AttentionLayer()(first_layer)
+        # Second layer
+        second_layer  = Dropout(0.2)(first_layer)
+        # Third layer - Attention
+        attention_out, attention_weights = AttentionLayer()(second_layer)
         outputs = Dense(1, activation='relu')(attention_out)
         self.ml_model = Model(inputs, outputs)
         self.ml_model.compile(optimizer='adam', loss='mean_squared_error')       
