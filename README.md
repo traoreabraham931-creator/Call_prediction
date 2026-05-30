@@ -1,12 +1,14 @@
 
-# 🧠 Strike prediction for call options
+#  Strike prediction for call options
 The purpose of this project is to illustrate how predict the strike of a call option via a LSTM model with attention layers.
 
 It is worth mentioning that this Machine Learning project focuses on building and evaluating a regression model for call price prediction. Specifically, it demonstrates the full pipeline from data processing to the dockerization of the code as well as its evaluation.
 
+The objective of this project is not to achieve state-of-the-art results on stock price prediction, but to showcase the author ability to present a structured approach to deal with a prediction task through Machine/Deep Learning techniques.
+
 ---
 
-## 🚀 Overview
+## Overview
 
 This project deals with a * regression problem * via a simple neural network architecture with LSTM (Long Short Term Memory) with LSTM layers as well as an attention layer. The prokect could be split into four main phases: data cleaning, dockerization of the code, model training and performance evaluation.
 
@@ -14,21 +16,10 @@ This project deals with a * regression problem * via a simple neural network arc
 
 ---
 
-## ✨ Data cleaning
-For the data cleaning, we proceed as follows:
+## Project Structure
 
-    * Removal of all of the data values that are not numeric ;
-    
-    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the observed             values.
-
----
-
-## 🏗️ Project Structure
-
-```
-├── output/               # Archives containing the model as well as the predictions
-├── call_put_data/        # Raw and processed datasets
-├── Call_prediction/      # Source code with the python codes, dockerfiles and the requirement files
+```                  
+├── Call_prediction/                # Source code with the python codes, dockerfiles and the requirement files
     ├── 1_dataformatting.py         # Data preprocessing
     ├── 2_model_train_save.py       # Training and save of the model
     ├── Dockerfile_python           # Dockerfile for the Python application
@@ -38,12 +29,14 @@ For the data cleaning, we proceed as follows:
     ├── launch-docker.sh            # File to launch in order to build the docker containers for the python app as well as the mysql database
     ├── library.py                  # Library containing various classes and methods
     ├── query_file.sql
-    ├── requirements_python.txt     # Text file containing the libraries that have to be installed            
+    ├── requirements_python.txt     # Text file containing the libraries that have to be installed
+    ├── call_put_data/              # Raw and processed datasets
+    ├── output/                     # Archives containing the model as well as the predictions    
 ```
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 * Source: https://optiondata.org/#fieldId
 * Features
@@ -63,7 +56,16 @@ For the data cleaning, we proceed as follows:
 
 ---
 
-## 🛠️ Installation
+## Data cleaning
+For the data cleaning, we proceed as follows:
+
+    * Removal of all of the data values that are not numeric ;
+    
+    * The missing observations undergo an imputation process via the mean strategy. Specifically, they are replaced by the average of the             observed values.
+
+---
+
+## Installation
 
 Clone the repository:
 
@@ -72,106 +74,40 @@ git clone https://github.com/traoreabraham931-creator/Call_prediction.git
 ```
 ---
 
-## ▶️ Usage
+## Usage
 
 Launch a .sh file to build the containers (python and sql)
 
 ```bash
-python src/train.py
+./launch-docker.sh 
 ```
 
 Generate the call dataset from the raw data, store the data in a mysql database, train the model, make the prediction, and export some archives
 from the docker containers.
 
 ```bash
-python src/evaluate.py
+./data_storage_code_launch.sh
 ```
 
 ---
+
+## Attention-based architecture
+
+The model used is a LSTM-based architecture with some attention layers. Delving into the specifics, the layers are defined as follows:
+     - A LSTM-cell with 50 units;
+     - A dropout layer ;
+     - An attention layer;
+     - An output layer with a single unit (prediction of a single value)
+
+---
+
 
 ## 📈 Results
+ -----------------------------
+| Metrics           | Score   |
+| ----------------- | ------- |
+| MSE - test        |  19.010 |
+ ----------------------------
+Roughly speaking, the test error amounts to 19.
 
-| Metric    | Score |
-| --------- | ----- |
-| Accuracy  | XX%   |
-| Precision | XX%   |
-| Recall    | XX%   |
-| F1-score  | XX%   |
 
-> 📌 Replace with your actual results.
-
----
-
-## 📸 Visualizations
-
-Add plots such as:
-
-* Confusion matrix
-* ROC curve
-* Feature importance
-
-Example:
-
-```md
-![Confusion Matrix](outputs/confusion_matrix.png)
-```
-
----
-
-## 🧪 Models Used
-
-* Logistic Regression
-* Decision Tree
-* Random Forest
-* (Optional) XGBoost / Neural Networks
-
----
-
-## 🔍 Evaluation Metrics
-
-This project uses:
-
-* Accuracy
-* Precision
-* Recall
-* F1-score
-* ROC-AUC
-
----
-
-## 🧠 Key Learnings
-
-* Importance of feature engineering
-* Handling class imbalance
-* Model selection & tuning
-* Interpreting evaluation metrics
-
----
-
-## 🗺️ Roadmap
-
-* [ ] Hyperparameter tuning
-* [ ] Model deployment (API)
-* [ ] Add more datasets
-* [ ] Improve feature engineering
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-Feel free to open issues or submit pull requests.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving it a star ⭐
-
----
