@@ -74,6 +74,4 @@ print("The MSE - train is {0}".format(mse_train))
 
 
 
-
-
         
