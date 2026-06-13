@@ -115,3 +115,6 @@ The model used is a LSTM-based architecture with some attention layers. Delving 
 Roughly speaking, the test error amounts to 19.
 
 
+## Serving with AWS
+
+
