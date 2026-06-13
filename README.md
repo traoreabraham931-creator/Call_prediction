@@ -117,4 +117,6 @@ Roughly speaking, the test error amounts to 19.
 
 ## Serving with AWS
 
+To perform serving with a pretrained model in AWS, refer to the jupyter file Pretrained_model. It is self-explanatory and explains thoroughly 
+how to deploy a pretrained model on AWS.
 
