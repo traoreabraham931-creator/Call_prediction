@@ -8,7 +8,8 @@ docker cp python_app://app/model_for_inference_gcp.pkl ./output
 docker cp python_app://app/custom_attention.weights.h5 ./output
 docker cp python_app://app/prediction_call_put.npy ./output
 docker cp python_app://app/test_data.npy ./output
-
+docker cp python_app://app/loss_function.npy ./output
+docker cp python_app://app/norm_gradient.npy ./output
 
 
 

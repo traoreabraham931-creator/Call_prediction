@@ -34,8 +34,14 @@ print(x_train.shape)
 print(y_train.shape)
 shape = data.shape[1]
 architecture = Architecture(shape)
-architecture.model_recovery()
-architecture.ml_model.fit(x_train, y_train, epochs=50, shuffle=False)
+weights , history = architecture.train_model_recovery_weights(x_train, y_train)
+
+_,_ = architecture.model_recovery()
+architecture.ml_model.set_weights(weights)
+gradient_norm = history.history["grad_norm"]
+loss = history.history["loss"]
+np.save('norm_gradient.npy', gradient_norm)
+np.save('loss_function.npy', loss)
 joblib.dump(architecture.ml_model, 'model_for_inference_gcp.pkl')
 architecture.ml_model.save_weights("custom_attention.weights.h5")
 

@@ -14,6 +14,34 @@ tf.keras.utils.set_random_seed(1)
 tf.config.experimental.enable_op_determinism()
 
 
+
+class CustomModel(tf.keras.Model):
+
+    def train_step(self, data):
+        x, y = data
+
+        with tf.GradientTape() as tape:
+            y_pred = self(x, training=True)
+            loss = self.compiled_loss(y, y_pred)
+
+        grads = tape.gradient(loss, self.trainable_variables)
+
+        # Global gradient norm
+        grad_norm = tf.linalg.global_norm(grads)
+
+        self.optimizer.apply_gradients(
+            zip(grads, self.trainable_variables)
+        )
+        
+        self.compiled_metrics.update_state(y, y_pred)
+
+        logs = {m.name: m.result() for m in self.metrics}
+        logs["grad_norm"] = grad_norm
+
+        return logs
+    
+    
+    
 class Architecture:
 
    def __init__(self, shape):
@@ -34,10 +62,26 @@ class Architecture:
         # Fourth layer - output layer
         outputs = Dense(1, activation='relu')(pooled)
         self.ml_model = Model(inputs, outputs)
-        self.ml_model.compile(optimizer='adam', loss='mean_squared_error')       
-        
+        self.ml_model.compile(optimizer='adam', loss='mean_squared_error')  
+        return inputs, outputs
 
-
+   def train_model_recovery_weights(self, x_train, y_train):
+       ncols = self.shape
+       inputs = Input(shape=(ncols-4,1))
+       # First - layer - LSTM
+       first_layer = LSTM(50, activation='relu', return_sequences=True)(inputs)
+       # Second layer
+       second_layer  = Dropout(0.2)(first_layer)
+       # Third layer - Attention
+       attention_out = Attention()([second_layer, second_layer])
+       pooled = tf.keras.layers.GlobalAveragePooling1D()(attention_out)
+       # Fourth layer - output layer
+       outputs = Dense(1, activation='relu')(pooled)
+       model = CustomModel(inputs, outputs)
+       model.compile(optimizer='adam', loss='mean_squared_error') 
+       history = model.fit(x_train, y_train, epochs=50, shuffle=False)
+       return model.weights, history
+       
 class Call_Put_processing:
     def __init__(self, address, nb_obs):
         self.data=None
